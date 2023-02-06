@@ -1,37 +1,49 @@
-import { View, Text, StyleSheet } from 'react-native';
-import React from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MoneyCard from '../components/MoneyCard';
 import RecentActivityCard from '../components/RecentActivityCard';
 import WelcomeHeader from '../components/WelcomeHeader';
 import CelipaLogo from '../components/CelipaLogo';
+import { BackgroundColors, TextColors } from '../utils/colors';
+import NewReceipt from '../components/NewReceipt';
+import ModalPopUp from '../components/ModalPopUp';
 
 export default function HomeScreen() {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
-    <SafeAreaView style={styles.homeContainer}>
+    <SafeAreaView style={styles.homeContainer} edges={['top']}>
+      <CelipaLogo />
       <View style={styles.container}>
-        <CelipaLogo />
-        <View style={styles.welcomeTab}>
-          <WelcomeHeader name="Christophe" />
-        </View>
+        <WelcomeHeader name="Christopher" />
         <View style={styles.transaction}>
           <MoneyCard
             value={123}
-            description="spent this month"
-            color="#AF4E8E"
+            description="spent this mont"
+            color={TextColors.DarkTertiary}
           />
           <MoneyCard
             value={123}
-            description="spent this month"
-            color="#AF4E8E"
+            description="still owed to you"
+            color={TextColors.Tertiary}
           />
         </View>
         <View style={styles.textBar}>
           <Text style={styles.recentActivityText}>Recent activity</Text>
           <Text style={styles.viewMoreText}>View More</Text>
         </View>
-        <View style={styles.activity}>
+        <View>
           <RecentActivityCard name="Linden Square Delivery" date={new Date()} />
+          <RecentActivityCard name="Linden Square Delivery" date={new Date()} />
+          <RecentActivityCard name="Linden Square Delivery" date={new Date()} />
+        </View>
+        <View style={styles.addReceiptButton}>
+          <NewReceipt onPress={() => setModalVisible(!modalVisible)} />
+          <ModalPopUp
+            modalVisible={modalVisible}
+            setModalVisible={setModalVisible}
+          />
         </View>
       </View>
     </SafeAreaView>
@@ -41,43 +53,39 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   homeContainer: {
     flex: 1,
-    backgroundColor: '#219AF4'
+    backgroundColor: BackgroundColors.Secondary
   },
   container: {
     flex: 1,
-    backgroundColor: 'white',
-    marginTop: '25%',
+    paddingHorizontal: 16,
+    backgroundColor: BackgroundColors.Primary,
     borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    alignItems: 'center'
-  },
-  welcomeTab: {
-    marginTop: -100,
-    height: '20%'
+    borderTopRightRadius: 40
   },
   transaction: {
-    display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    height: '20%'
+    alignSelf: 'center',
+    marginTop: 24
   },
   textBar: {
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    height: '10%'
+    marginTop: 24
   },
   recentActivityText: {
-    color: '#219AF4',
+    color: TextColors.Primary,
     fontSize: 24,
     fontWeight: '600'
   },
   viewMoreText: {
     fontSize: 16,
-    fontWeight: '600'
+    fontWeight: '300',
+    textDecorationLine: 'underline'
   },
-  activity: {
-    alignItems: 'center',
+  addReceiptButton: {
+    flex: 1,
+    zIndex: 1,
+    alignItems: 'flex-end',
     justifyContent: 'flex-end'
   }
 });

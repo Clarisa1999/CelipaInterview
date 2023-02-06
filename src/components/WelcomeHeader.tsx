@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
 import React from 'react';
 import defaultImage from '../../assets/defaultIcon.png';
+import { BackgroundColors, BorderColrs } from '../utils/colors';
 
 type Props = {
   name: String;
@@ -10,38 +11,38 @@ export default function WelcomeHeader({ name }: Props) {
   return (
     <View style={sytles.container}>
       <Image source={defaultImage} style={sytles.imageStyling} />
-      <Text style={sytles.welcomeText}>Welcome Back, {name}</Text>
+      <View>
+        <Text style={sytles.welcomeText}>Welcome back, </Text>
+        <Text style={sytles.welcomeText}>{name}.</Text>
+      </View>
     </View>
   );
 }
 
 const sytles = StyleSheet.create({
   container: {
-    display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    alignSelf: 'center',
     width: 382,
     height: 100,
-    backgroundColor: '#ffff',
-    borderColor: 'grey',
+    marginTop: -50,
+    backgroundColor: BackgroundColors.Primary,
+    borderColor: BorderColrs.Primary,
     borderRadius: 12,
-    borderWidth: 0.5
+    borderWidth: 0.2
   },
   welcomeText: {
-    display: 'flex',
-    alignContent: 'center',
     color: '#219AF4',
-    fontStyle: 'normal',
-    fontSize: 40,
-    alignItems: 'center',
+    fontSize: 34,
     lineHeight: 40.22,
-    fontWeight: '600'
+    fontWeight: '500'
   },
   imageStyling: {
     width: 64,
     height: 64,
     borderRadius: 50,
-    backgroundColor: 'blue'
+    marginHorizontal: 16,
+    backgroundColor: 'grey'
   }
 });

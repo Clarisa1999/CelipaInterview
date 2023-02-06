@@ -42,7 +42,8 @@ export default function TabNavigator() {
         options={{
           tabBarIcon: ({ focused }) =>
             focused ? (
-              <Image source={NewReceipt} style={styles.icon} />
+              // <Image source={NewReceipt} style={styles.icon} />
+              <Image source={Home} style={styles.icon} />
             ) : (
               <Image source={Home} style={styles.icon} />
             )

@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
 import React from 'react';
 import Arrow from '../../assets/arrow.png';
+import { BackgroundColors, BorderColrs, TextColors } from '../utils/colors';
 
 type Props = {
   name: string;
@@ -25,16 +26,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 10,
     height: 80,
-    backgroundColor: '#ffffff',
+    width: '100%',
+    marginTop: 12,
+    backgroundColor: BackgroundColors.Primary,
     borderRadius: 12,
-    borderWidth: 0.5,
-    borderColor: 'grey'
+    borderWidth: 0.2,
+    borderColor: BorderColrs.Primary
   },
   first: { display: 'flex', flexDirection: 'row' },
   arrow: { width: 10, height: 18 },
   name: {
     flex: 1,
-    color: '#219AF4',
+    color: TextColors.Primary,
     fontSize: 20
   },
   date: {

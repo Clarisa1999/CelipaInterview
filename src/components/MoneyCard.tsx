@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
+import { BackgroundColors, BorderColrs, TextColors } from '../utils/colors';
 
 type Props = {
   value: number;
@@ -18,23 +19,21 @@ export default function MoneyCard({ value, description, color }: Props) {
 
 const sytles = StyleSheet.create({
   cardContainer: {
-    display: 'flex',
     justifyContent: 'center',
-    backgroundColor: '#ffffff',
     alignItems: 'center',
-    width: 150,
+    backgroundColor: BackgroundColors.Primary,
+    width: 180,
     height: 80,
+    marginHorizontal: 8,
     borderRadius: 12,
-    borderWidth: 0.5,
-    borderColor: 'grey'
+    borderWidth: 0.2,
+    borderColor: BorderColrs.Primary
   },
   value: {
-    color: '#AF4E8E',
     fontSize: 32,
-    fontFamily: 'Source Sans Pro',
     fontWeight: '600'
   },
   description: {
-    color: '#333333'
+    color: TextColors.Secondary
   }
 });

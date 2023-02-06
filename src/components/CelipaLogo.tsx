@@ -6,20 +6,18 @@ import LogoText from '../../assets/celipa-text.png';
 export default function CelipaLogo() {
   return (
     <View style={styles.icon}>
-      <Image source={LogoImage} />
-      <Image source={LogoText} />
+      <Image source={LogoImage} style={{ marginRight: 2 }} />
+      <Image source={LogoText} style={{ marginLeft: 2 }} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   icon: {
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    width: 31.15,
-    height: 31.14,
-    top: 41.37
-    //position: 'absolute'
+    alignItems: 'center',
+    marginTop: 20,
+    marginBottom: 80
   }
 });
