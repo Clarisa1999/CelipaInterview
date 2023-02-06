@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MoneyCard from '../components/MoneyCard';
@@ -8,8 +8,13 @@ import CelipaLogo from '../components/CelipaLogo';
 import { BackgroundColors, TextColors } from '../utils/colors';
 import NewReceipt from '../components/NewReceipt';
 import ModalPopUp from '../components/ModalPopUp';
+import PopUpMenu from '../components/PopUpMenu';
+import { HomeParamList } from '../navigation/types';
+import { StackScreenProps } from '@react-navigation/stack';
 
-export default function HomeScreen() {
+export default function HomeScreen({
+  navigation
+}: StackScreenProps<HomeParamList>) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -38,12 +43,15 @@ export default function HomeScreen() {
           <RecentActivityCard name="Linden Square Delivery" date={new Date()} />
           <RecentActivityCard name="Linden Square Delivery" date={new Date()} />
         </View>
-        <View style={styles.addReceiptButton}>
+        {/* <View style={styles.addReceiptButton}>
           <NewReceipt onPress={() => setModalVisible(!modalVisible)} />
           <ModalPopUp
             modalVisible={modalVisible}
             setModalVisible={setModalVisible}
           />
+        </View> */}
+        <View style={styles.addReceiptButton}>
+          <PopUpMenu navigation={navigation} />
         </View>
       </View>
     </SafeAreaView>
@@ -84,8 +92,8 @@ const styles = StyleSheet.create({
   },
   addReceiptButton: {
     flex: 1,
-    zIndex: 1,
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end'
+    zIndex: 1
+    // alignItems: 'flex-end',
+    // justifyContent: 'flex-end'
   }
 });

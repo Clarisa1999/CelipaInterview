@@ -10,10 +10,11 @@ import ReceiptsScreen from '../screens/ReceiptsScreen';
 import { TabParamList } from './types';
 import ReceiptLight from '../../assets/receipt-light.png';
 import ReceiptDark from '../../assets/receipt-dark.png';
-import Home from '../../assets/home-icon.png';
-import NewReceipt from '../../assets/new-receipt.png';
+import HomeLight from '../../assets/home-icon.png';
+import HomeDark from '../../assets/home-dark.png';
 import ProfileLight from '../../assets/profile-light.png';
 import ProfileDark from '../../assets/profile-dark.png';
+import HomeStack from '../screens/HomeStack';
 
 const Tab = createBottomTabNavigator<TabParamList>();
 
@@ -38,14 +39,14 @@ export default function TabNavigator() {
       />
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeStack}
         options={{
           tabBarIcon: ({ focused }) =>
             focused ? (
               // <Image source={NewReceipt} style={styles.icon} />
-              <Image source={Home} style={styles.icon} />
+              <Image source={HomeDark} style={styles.icon} />
             ) : (
-              <Image source={Home} style={styles.icon} />
+              <Image source={HomeLight} style={styles.icon} />
             )
         }}
       />

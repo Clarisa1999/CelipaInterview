@@ -33,7 +33,7 @@ const sytles = StyleSheet.create({
     borderWidth: 0.2
   },
   welcomeText: {
-    color: '#219AF4',
+    color: 'Primary',
     fontSize: 34,
     lineHeight: 40.22,
     fontWeight: '500'

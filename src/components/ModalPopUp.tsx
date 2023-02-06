@@ -4,9 +4,12 @@ import {
   StyleSheet,
   Modal,
   SafeAreaView,
-  Pressable
+  Pressable,
+  Image
 } from 'react-native';
 import React, { useState } from 'react';
+import scanIcon from '../../assets/scan-receipt-icon.png';
+import joinIcon from '../../assets/join-receipt-icon.png';
 
 export default function ModalPopUp({
   modalVisible,
@@ -27,7 +30,16 @@ export default function ModalPopUp({
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
+            <View style={{ flexDirection: 'row' }}>
+              <Image source={scanIcon} />
+              <Text style={styles.modalText}>Scan Receipt</Text>
+            </View>
+            <View
+              style={{ flexDirection: 'row', alignContent: 'space-between' }}
+            >
+              <Image source={joinIcon} />
+              <Text style={styles.modalText}>Join Receipt</Text>
+            </View>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
@@ -54,6 +66,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 35,
     alignItems: 'center',
+    justifyContent: 'space-evenly',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
