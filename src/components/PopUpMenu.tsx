@@ -23,6 +23,15 @@ export default function PopUpMenu({
   return (
     <MenuProvider style={styles.container}>
       <Menu>
+        <MenuTrigger
+          customStyles={{
+            triggerWrapper: {
+              height: -100
+            }
+          }}
+        >
+          <Image source={icon} />
+        </MenuTrigger>
         <MenuOptions>
           <MenuOption
             onSelect={() => navigation.navigate('AddReceipt')}
@@ -40,15 +49,6 @@ export default function PopUpMenu({
             <Text style={styles.text}>Join receipt</Text>
           </MenuOption>
         </MenuOptions>
-        <MenuTrigger
-          customStyles={{
-            triggerWrapper: {
-              // top: -100
-            }
-          }}
-        >
-          <Image source={icon} />
-        </MenuTrigger>
       </Menu>
     </MenuProvider>
   );
@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
     padding: 30,
     flexDirection: 'column'
   },

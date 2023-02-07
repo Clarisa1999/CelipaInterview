@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
 import React from 'react';
 import defaultImage from '../../assets/defaultIcon.png';
-import { BackgroundColors, BorderColrs } from '../utils/colors';
+import { BackgroundColors, BorderColrs, TextColors } from '../utils/colors';
 
 type Props = {
   name: String;
@@ -33,10 +33,10 @@ const sytles = StyleSheet.create({
     borderWidth: 0.2
   },
   welcomeText: {
-    color: 'Primary',
+    color: TextColors.Primary,
     fontSize: 34,
     lineHeight: 40.22,
-    fontWeight: '500'
+    fontWeight: '600'
   },
   imageStyling: {
     width: 64,

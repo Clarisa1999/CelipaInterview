@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MoneyCard from '../components/MoneyCard';
@@ -7,7 +7,6 @@ import WelcomeHeader from '../components/WelcomeHeader';
 import CelipaLogo from '../components/CelipaLogo';
 import { BackgroundColors, TextColors } from '../utils/colors';
 import NewReceipt from '../components/NewReceipt';
-import ModalPopUp from '../components/ModalPopUp';
 import PopUpMenu from '../components/PopUpMenu';
 import { HomeParamList } from '../navigation/types';
 import { StackScreenProps } from '@react-navigation/stack';
@@ -15,13 +14,11 @@ import { StackScreenProps } from '@react-navigation/stack';
 export default function HomeScreen({
   navigation
 }: StackScreenProps<HomeParamList>) {
-  const [modalVisible, setModalVisible] = useState(false);
-
   return (
     <SafeAreaView style={styles.homeContainer} edges={['top']}>
       <CelipaLogo />
       <View style={styles.container}>
-        <WelcomeHeader name="Christopher" />
+        <WelcomeHeader name="Christophe" />
         <View style={styles.transaction}>
           <MoneyCard
             value={123}
@@ -36,20 +33,22 @@ export default function HomeScreen({
         </View>
         <View style={styles.textBar}>
           <Text style={styles.recentActivityText}>Recent activity</Text>
-          <Text style={styles.viewMoreText}>View More</Text>
+          <Text
+            style={styles.viewMoreText}
+            onPress={() => navigation.navigate('ViewMore')}
+          >
+            View More
+          </Text>
         </View>
-        <View>
+        <TouchableOpacity onPress={() => navigation.navigate('ViewMore')}>
           <RecentActivityCard name="Linden Square Delivery" date={new Date()} />
-          <RecentActivityCard name="Linden Square Delivery" date={new Date()} />
-          <RecentActivityCard name="Linden Square Delivery" date={new Date()} />
-        </View>
-        {/* <View style={styles.addReceiptButton}>
-          <NewReceipt onPress={() => setModalVisible(!modalVisible)} />
-          <ModalPopUp
-            modalVisible={modalVisible}
-            setModalVisible={setModalVisible}
-          />
-        </View> */}
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ViewMore')}>
+          <RecentActivityCard name="Bab Korean Bistro" date={new Date()} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ViewMore')}>
+          <RecentActivityCard name="The Local" date={new Date()} />
+        </TouchableOpacity>
         <View style={styles.addReceiptButton}>
           <PopUpMenu navigation={navigation} />
         </View>

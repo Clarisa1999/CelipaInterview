@@ -12,7 +12,7 @@ export default function RecentActivityCard({ name, date }: Props) {
   return (
     <View style={styles.container}>
       <View style={styles.first}>
-        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.nameStyles}> {name}</Text>
         <Image source={Arrow} style={styles.arrow} />
       </View>
       <Text style={styles.date}>{date.toISOString()}</Text>
@@ -33,12 +33,20 @@ const styles = StyleSheet.create({
     borderWidth: 0.2,
     borderColor: BorderColrs.Primary
   },
-  first: { display: 'flex', flexDirection: 'row' },
-  arrow: { width: 10, height: 18 },
-  name: {
+  first: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  arrow: {
+    width: 10,
+    height: 18,
+    color: '#7A7A7A'
+  },
+  nameStyles: {
     flex: 1,
     color: TextColors.Primary,
-    fontSize: 20
+    fontSize: 20,
+    fontWeight: '600'
   },
   date: {
     fontSize: 16,

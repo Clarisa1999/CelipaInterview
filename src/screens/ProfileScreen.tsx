@@ -1,10 +1,16 @@
 import { View, Text, SafeAreaView } from 'react-native';
 import React from 'react';
+import { TextColors } from '../utils/colors';
 
 export default function ProfileScreen() {
   return (
-    <SafeAreaView>
-      <Text>ProfileScreen</Text>
-    </SafeAreaView>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: '#FFFFFF',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    ></SafeAreaView>
   );
 }

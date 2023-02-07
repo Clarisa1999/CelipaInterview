@@ -6,7 +6,6 @@ import HomeScreen from './HomeScreen';
 import AddReceipt from './AddReceipt';
 import ViewMore from './ViewMore';
 import JoinReceipt from './JoinReceipt';
-
 import { TransitionPresets } from '@react-navigation/stack';
 
 const Stack = createNativeStackNavigator<HomeParamList>();
