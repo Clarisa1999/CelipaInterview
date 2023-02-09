@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 import React from 'react';
 import LogoImage from '../../assets/celipa-icon.png';
 import LogoText from '../../assets/celipa-text.png';

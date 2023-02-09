@@ -5,7 +5,7 @@ import { BackgroundColors, BorderColrs, TextColors } from '../utils/colors';
 
 type Props = {
   name: string;
-  date: Date;
+  date: string;
 };
 
 export default function RecentActivityCard({ name, date }: Props) {
@@ -15,7 +15,7 @@ export default function RecentActivityCard({ name, date }: Props) {
         <Text style={styles.nameStyles}> {name}</Text>
         <Image source={Arrow} style={styles.arrow} />
       </View>
-      <Text style={styles.date}>{date.toDateString()}</Text>
+      <Text style={styles.date}>{date}</Text>
     </View>
   );
 }

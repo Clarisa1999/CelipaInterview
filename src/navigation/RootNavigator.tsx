@@ -1,4 +1,3 @@
-import { View, Text, ActivityIndicator } from 'react-native';
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootParamList } from './types';

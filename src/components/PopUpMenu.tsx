@@ -5,14 +5,14 @@ import {
   MenuProvider,
   MenuOptions,
   MenuOption,
-  MenuTrigger,
-  renderers
+  MenuTrigger
 } from 'react-native-popup-menu';
 import icon from '../../assets/new-receipt.png';
 import { HomeParamList } from '../navigation/types';
-import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack';
+import { StackNavigationProp } from '@react-navigation/stack';
 import scanIcon from '../../assets/scan-receipt-icon.png';
 import joinIcon from '../../assets/join-receipt-icon.png';
+import { BackgroundColors, BorderColrs } from '../utils/colors';
 
 const Divider = () => <View style={styles.divider} />;
 
@@ -58,25 +58,22 @@ export default function PopUpMenu({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: BackgroundColors.Primary,
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
-    padding: 30,
+    paddingBottom: '20%',
     flexDirection: 'column'
   },
   divider: {
     height: StyleSheet.hairlineWidth,
-    backgroundColor: '#7F8487'
+    backgroundColor: BorderColrs.Primary
   },
   options: {
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-evenly'
   },
   text: {
     fontSize: 16,
-    fontWeight: '300',
-    display: 'flex',
-    alignItems: 'center'
+    fontWeight: '300'
   }
 });

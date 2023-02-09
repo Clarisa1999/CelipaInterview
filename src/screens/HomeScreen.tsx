@@ -1,22 +1,36 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MoneyCard from '../components/MoneyCard';
 import RecentActivityCard from '../components/RecentActivityCard';
 import WelcomeHeader from '../components/WelcomeHeader';
 import CelipaLogo from '../components/CelipaLogo';
 import { BackgroundColors, TextColors } from '../utils/colors';
-import NewReceipt from '../components/NewReceipt';
 import PopUpMenu from '../components/PopUpMenu';
 import { HomeParamList } from '../navigation/types';
 import { StackScreenProps } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+const CurrentDate = () => {
+  const date = new Date();
+  let day = date.getDate().toString();
+  let month = (date.getMonth() + 1).toString();
+  const year = date.getFullYear().toString();
+
+  if (day.length === 1) {
+    day = `0${day}`;
+  }
+
+  if (month.length === 1) {
+    month = `0${month}`;
+  }
+  return `${day}/${month}/${year}`;
+};
+
 export default function HomeScreen({
   navigation
 }: StackScreenProps<HomeParamList>) {
   const [name, setName] = React.useState<string>();
-
   React.useEffect(() => {
     const getData = async () => {
       try {
@@ -37,12 +51,12 @@ export default function HomeScreen({
         <WelcomeHeader name={name ?? ''} />
         <View style={styles.transaction}>
           <MoneyCard
-            value={123}
+            value={123.45}
             description="spent this mont"
             color={TextColors.DarkTertiary}
           />
           <MoneyCard
-            value={123}
+            value={40.5}
             description="still owed to you"
             color={TextColors.Tertiary}
           />
@@ -57,13 +71,16 @@ export default function HomeScreen({
           </Text>
         </View>
         <TouchableOpacity onPress={() => navigation.navigate('ViewMore')}>
-          <RecentActivityCard name="Linden Square Delivery" date={new Date()} />
+          <RecentActivityCard
+            name="Linden Square Delivery"
+            date={CurrentDate()}
+          />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('ViewMore')}>
-          <RecentActivityCard name="Bab Korean Bistro" date={new Date()} />
+          <RecentActivityCard name="Bab Korean Bistro" date={CurrentDate()} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('ViewMore')}>
-          <RecentActivityCard name="The Local" date={new Date()} />
+          <RecentActivityCard name="The Local" date={CurrentDate()} />
         </TouchableOpacity>
         <View style={styles.addReceiptButton}>
           <PopUpMenu navigation={navigation} />
@@ -108,7 +125,5 @@ const styles = StyleSheet.create({
   addReceiptButton: {
     flex: 1,
     zIndex: 1
-    // alignItems: 'flex-end',
-    // justifyContent: 'flex-end'
   }
 });

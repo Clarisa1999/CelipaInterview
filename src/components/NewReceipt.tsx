@@ -1,5 +1,5 @@
 import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
 import icon from '../../assets/new-receipt.png';
 
 export default function NewReceipt({ onPress }: { onPress: () => void }) {

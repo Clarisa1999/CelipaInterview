@@ -1,13 +1,13 @@
 import { View, Text } from 'react-native';
 import React from 'react';
-import { TextColors } from '../utils/colors';
+import { BackgroundColors, TextColors } from '../utils/colors';
 
 export default function ViewMore() {
   return (
     <View
       style={{
         flex: 1,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: BackgroundColors.Primary,
         justifyContent: 'center',
         alignItems: 'center'
       }}

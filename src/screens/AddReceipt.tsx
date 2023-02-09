@@ -1,9 +1,6 @@
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import React, { useState } from 'react';
 import { TextColors } from '../utils/colors';
-import { useNavigation } from '@react-navigation/native';
-import { HomeParamList } from '../navigation/types';
-import { StackScreenProps } from '@react-navigation/stack';
 
 export default function AddReceipt() {
   const [restaurantName, setrestaurantName] = useState<string>('');
@@ -50,7 +47,6 @@ var styles = StyleSheet.create({
     display: 'flex',
     flex: 1,
     justifyContent: 'flex-start',
-    //marginTop: 50,
     padding: 20,
     backgroundColor: '#ffffff'
   },

@@ -1,11 +1,7 @@
 import { View, Text, Image, StyleSheet } from 'react-native';
 import React from 'react';
-import {
-  BottomTabNavigationOptions,
-  createBottomTabNavigator
-} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ProfileScreen from '../screens/ProfileScreen';
-import HomeScreen from '../screens/HomeScreen';
 import ReceiptsScreen from '../screens/ReceiptsScreen';
 import { TabParamList } from './types';
 import ReceiptLight from '../../assets/receipt-light.png';

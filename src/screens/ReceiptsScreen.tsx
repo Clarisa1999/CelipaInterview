@@ -1,13 +1,13 @@
 import { View, Text, SafeAreaView } from 'react-native';
 import React from 'react';
-import { TextColors } from '../utils/colors';
+import { BackgroundColors } from '../utils/colors';
 
 export default function ReceiptsScreen() {
   return (
     <SafeAreaView
       style={{
         flex: 1,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: BackgroundColors.Primary,
         justifyContent: 'center',
         alignItems: 'center'
       }}
