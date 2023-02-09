@@ -5,7 +5,8 @@ import {
   MenuProvider,
   MenuOptions,
   MenuOption,
-  MenuTrigger
+  MenuTrigger,
+  renderers
 } from 'react-native-popup-menu';
 import icon from '../../assets/new-receipt.png';
 import { HomeParamList } from '../navigation/types';

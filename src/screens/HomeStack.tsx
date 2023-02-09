@@ -6,7 +6,6 @@ import HomeScreen from './HomeScreen';
 import AddReceipt from './AddReceipt';
 import ViewMore from './ViewMore';
 import JoinReceipt from './JoinReceipt';
-import { TransitionPresets } from '@react-navigation/stack';
 
 const Stack = createNativeStackNavigator<HomeParamList>();
 
@@ -14,12 +13,8 @@ export default function HomeStack() {
   return (
     <Stack.Navigator
       initialRouteName="Feed"
-      screenOptions={{
-        headerTransparent: true,
-        headerTintColor: 'transparent'
-      }}
     >
-      <Stack.Screen name="Feed" component={HomeScreen} />
+      <Stack.Screen name="Feed" component={HomeScreen} options={{headerShown: false}}/>
       <Stack.Screen
         name="AddReceipt"
         component={AddReceipt}

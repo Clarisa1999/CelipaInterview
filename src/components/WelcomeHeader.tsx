@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
 import React from 'react';
-import defaultImage from '../../assets/defaultIcon.png';
+import defaultImage from '../../assets/img_avatar.png';
 import { BackgroundColors, BorderColrs, TextColors } from '../utils/colors';
 
 type Props = {

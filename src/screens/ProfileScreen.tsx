@@ -1,8 +1,18 @@
-import { View, Text, SafeAreaView } from 'react-native';
+import { View, Text, SafeAreaView, Button, Alert } from 'react-native';
 import React from 'react';
 import { TextColors } from '../utils/colors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StackScreenProps } from '@react-navigation/stack';
+import { HomeParamList, TabParamList } from '../navigation/types';
+import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 
-export default function ProfileScreen() {
+export default function ProfileScreen({
+  navigation
+}: BottomTabScreenProps<TabParamList>) {
+  const onPress = async () => {
+    await AsyncStorage.clear();
+    navigation.getParent()?.navigate('Login');
+  };
   return (
     <SafeAreaView
       style={{
@@ -11,6 +21,8 @@ export default function ProfileScreen() {
         justifyContent: 'center',
         alignItems: 'center'
       }}
-    ></SafeAreaView>
+    >
+      <Button title="Logout" onPress={onPress} />
+    </SafeAreaView>
   );
 }

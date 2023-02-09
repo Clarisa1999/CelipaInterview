@@ -15,7 +15,7 @@ export default function RecentActivityCard({ name, date }: Props) {
         <Text style={styles.nameStyles}> {name}</Text>
         <Image source={Arrow} style={styles.arrow} />
       </View>
-      <Text style={styles.date}>{date.toISOString()}</Text>
+      <Text style={styles.date}>{date.toDateString()}</Text>
     </View>
   );
 }

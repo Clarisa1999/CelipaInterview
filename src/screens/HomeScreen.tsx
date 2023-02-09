@@ -10,15 +10,31 @@ import NewReceipt from '../components/NewReceipt';
 import PopUpMenu from '../components/PopUpMenu';
 import { HomeParamList } from '../navigation/types';
 import { StackScreenProps } from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function HomeScreen({
   navigation
 }: StackScreenProps<HomeParamList>) {
+  const [name, setName] = React.useState<string>();
+
+  React.useEffect(() => {
+    const getData = async () => {
+      try {
+        const value = await AsyncStorage.getItem('name');
+        if (value !== null) {
+          // value previously stored
+          setName(value);
+        }
+      } catch (e) {}
+    };
+    getData();
+  }, []);
+
   return (
     <SafeAreaView style={styles.homeContainer} edges={['top']}>
       <CelipaLogo />
       <View style={styles.container}>
-        <WelcomeHeader name="Christophe" />
+        <WelcomeHeader name={name ?? ''} />
         <View style={styles.transaction}>
           <MoneyCard
             value={123}
